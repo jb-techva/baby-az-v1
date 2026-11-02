@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-royal {
+    font-family: 'Cinzel', serif;
+  }
+  .font-script {
+    font-family: 'Great Vibes', cursive;
+  }
+  .font-display {
+    font-family: 'Playfair Display', serif;
+  }
+  .font-sans {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Custom scrollbar and frosted glass styles */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #EAF6FF;
+}
+::-webkit-scrollbar-thumb {
+  background: #B9E2F5;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #E998AF;
+}
+
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.shimmer-text {
+  background: linear-gradient(90deg, #294867 0%, #4682B4 25%, #E998AF 50%, #4682B4 75%, #294867 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 6s linear infinite;
+}
+
+.shimmer-silver {
+  background: linear-gradient(90deg, #1e3a5f 0%, #B9E2F5 30%, #ffffff 50%, #B9E2F5 70%, #1e3a5f 100%);
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer 5s linear infinite;
+}
+
+/* Glassmorphism styling for icy frozen cards */
+.frosted-glass {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(185, 226, 245, 0.55);
+  box-shadow: 0 10px 30px -10px rgba(41, 72, 103, 0.12), 0 0 15px 0 rgba(185, 226, 245, 0.25);
+}
+
+.frosted-glass-pink {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(247, 213, 227, 0.7);
+  box-shadow: 0 10px 30px -10px rgba(233, 152, 175, 0.18), 0 0 15px 0 rgba(247, 213, 227, 0.3);
+}
+
+.frost-envelope {
+  background: linear-gradient(135deg, #F9FCFF 0%, #EAF6FF 50%, #B9E2F5 100%);
+  border: 2px solid #DDE5EF;
+  box-shadow: 0 20px 40px -15px rgba(41, 72, 103, 0.25), 0 0 25px rgba(185, 226, 245, 0.4);
+}
+
+
+/* Layered envelope: letter rises behind the pocket while the hinged flap opens. */
+.opening-scene { background: radial-gradient(ellipse at 50% 40%, #d8effb, transparent 60%), linear-gradient(#eaf6ff, #f9fcff 65%, #f9e9f0); }
+.opening-halo { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: #fff8; filter: blur(45px); pointer-events: none; }
+.envelope-stage { position: relative; width: min(300px, 80vw); height: 200px; margin: 100px 0 36px; perspective: 1000px; cursor: pointer; flex-shrink: 0; }
+.envelope-back { position: absolute; inset: 0; background: #8ebed6; border-radius: 10px; box-shadow: 0 22px 50px #29486730; }
+.envelope-letter { position: absolute; inset: 12px 18px 10px; background: #fffdfb; border: 1px solid #d5e9f2; border-radius: 7px; display: flex; align-items: center; flex-direction: column; justify-content: center; z-index: 2; box-shadow: 0 0 20px #29486715; }
+.envelope-pocket { position: absolute; inset: 0; background: linear-gradient(135deg, #e8f7ff, #b9e2f5); clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%); border-radius: 8px; z-index: 4; }
+.envelope-flap { position: absolute; inset: 0; background: linear-gradient(#e8f7ff, #a5cee3); clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top center; backface-visibility: hidden; }
+.envelope-seal { position: absolute; top: 46%; left: calc(50% - 22px); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: #f7d5e3; border: 3px solid #fff9; color: #294867; font-size: 24px; z-index: 6; box-shadow: 0 3px 10px #29486720; }
+.cursor-snowflake { position: fixed; z-index: 100; pointer-events: none; font-size: 13px; color: #629cb9; animation: cursor-drift 750ms ease-out forwards; }
+@keyframes cursor-drift { from { opacity: .75; transform: translate(-50%, -50%) rotate(0); } to { opacity: 0; transform: translate(-30%, 30px) rotate(100deg) scale(.4); } }
+@media (max-height: 650px) { .envelope-stage { margin-top: 65px; margin-bottom: 20px; height: 150px; width: 240px; } .opening-scene h1 { font-size: 22px; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .cursor-snowflake { display: none; }
+}
