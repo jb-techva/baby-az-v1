@@ -108,3 +108,20 @@
   box-shadow: 0 20px 40px -15px rgba(41, 72, 103, 0.25), 0 0 25px rgba(185, 226, 245, 0.4);
 }
 
+
+/* Layered envelope: letter rises behind the pocket while the hinged flap opens. */
+.opening-scene { background: radial-gradient(ellipse at 50% 40%, #d8effb, transparent 60%), linear-gradient(#eaf6ff, #f9fcff 65%, #f9e9f0); }
+.opening-halo { position: absolute; width: 280px; height: 280px; border-radius: 50%; background: #fff8; filter: blur(45px); pointer-events: none; }
+.envelope-stage { position: relative; width: min(300px, 80vw); height: 200px; margin: 100px 0 36px; perspective: 1000px; cursor: pointer; flex-shrink: 0; }
+.envelope-back { position: absolute; inset: 0; background: #8ebed6; border-radius: 10px; box-shadow: 0 22px 50px #29486730; }
+.envelope-letter { position: absolute; inset: 12px 18px 10px; background: #fffdfb; border: 1px solid #d5e9f2; border-radius: 7px; display: flex; align-items: center; flex-direction: column; justify-content: center; z-index: 2; box-shadow: 0 0 20px #29486715; }
+.envelope-pocket { position: absolute; inset: 0; background: linear-gradient(135deg, #e8f7ff, #b9e2f5); clip-path: polygon(0 0, 50% 55%, 100% 0, 100% 100%, 0 100%); border-radius: 8px; z-index: 4; }
+.envelope-flap { position: absolute; inset: 0; background: linear-gradient(#e8f7ff, #a5cee3); clip-path: polygon(0 0, 100% 0, 50% 58%); transform-origin: top center; backface-visibility: hidden; }
+.envelope-seal { position: absolute; top: 46%; left: calc(50% - 22px); width: 44px; height: 44px; display: grid; place-items: center; border-radius: 50%; background: #f7d5e3; border: 3px solid #fff9; color: #294867; font-size: 24px; z-index: 6; box-shadow: 0 3px 10px #29486720; }
+.cursor-snowflake { position: fixed; z-index: 100; pointer-events: none; font-size: 13px; color: #629cb9; animation: cursor-drift 750ms ease-out forwards; }
+@keyframes cursor-drift { from { opacity: .75; transform: translate(-50%, -50%) rotate(0); } to { opacity: 0; transform: translate(-30%, 30px) rotate(100deg) scale(.4); } }
+@media (max-height: 650px) { .envelope-stage { margin-top: 65px; margin-bottom: 20px; height: 150px; width: 240px; } .opening-scene h1 { font-size: 22px; } }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+  .cursor-snowflake { display: none; }
+}

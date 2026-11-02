@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { SnowflakeTrail } from './components/SnowflakeTrail';
 import { SnowBackground } from './components/SnowBackground';
 import { AudioPlayer } from './components/AudioPlayer';
 import { OpeningEnvelope } from './components/OpeningEnvelope';
@@ -37,10 +38,10 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  const handleOpenInvitation = () => {
-    setAutoPlayAudio(true);
+  const handleOpenInvitation = useCallback(() => {
     setIsOpened(true);
-  };
+    window.scrollTo({ top: 0 });
+  }, []);
 
   const navigateToWishlist = () => {
     setCurrentView('wishlist');
@@ -69,10 +70,11 @@ export default function App() {
     <div className="min-h-screen bg-[#F9FCFF] text-[#294867] relative selection:bg-[#B9E2F5] selection:text-[#294867]">
       {/* Falling Snow Canvas */}
       <SnowBackground />
+      <SnowflakeTrail />
 
       {/* Opening Envelope Screen (Fullscreen until user taps "CLICK TO OPEN") */}
       {currentView === 'invitation' && (
-        <OpeningEnvelope isOpen={isOpened} onOpen={handleOpenInvitation} />
+        <OpeningEnvelope isOpen={isOpened} onOpen={handleOpenInvitation} onStart={() => setAutoPlayAudio(true)} />
       )}
 
       {/* Persistent Audio Player (Plays continuous instrumental throughout website) */}
@@ -82,11 +84,11 @@ export default function App() {
         <WishlistPage onBackToInvitation={navigateToInvitation} />
       ) : (
         /* Main Website Content (Visible after opening, or rendered behind for smooth transition) */
-        <div className={`transition-opacity duration-1000 ${isOpened ? 'opacity-100' : 'opacity-0'}`}>
+        <div inert={!isOpened} aria-hidden={!isOpened} className={`transition-opacity duration-1000 ${isOpened ? 'opacity-100' : 'opacity-0'}`}>
           <Navbar />
 
           <main className="relative pb-12">
-            <HeroSection />
+            <HeroSection key={isOpened ? "revealed" : "waiting"} />
             <CountdownSection />
             <VenuesSection />
             <TimelineSection />
