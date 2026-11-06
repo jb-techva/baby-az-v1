@@ -49,11 +49,11 @@ export const HeroSection: React.FC = () => {
 
           {/* Frozen-Inspired Portrait Frame Container */}
           <div className="relative rounded-[2.2rem] p-2 sm:p-2.5 bg-gradient-to-b from-white via-[#EAF6FF] to-[#DDE5EF] border-2 border-[#B9E2F5] shadow-2xl">
-            {/* Inner frame with rounded corners preserving Baby AZ's natural sideways pose and blue tutu */}
-            <div className="relative aspect-[3/4] w-full rounded-[1.8rem] overflow-hidden bg-slate-100 border border-white shadow-inner group">
+            {/* Baby AZ portrait in a consistent 4:5 frame */}
+            <div className="relative aspect-[4/5] w-full rounded-[1.8rem] overflow-hidden bg-slate-100 border border-white shadow-inner group">
               <img
                 src={baby.heroPhoto || baby.portraitUrl}
-                alt="Baby AZ in royal blue tutu outfit"
+                alt="Baby AZ smiling in her blue fairy dress and wings"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
               />

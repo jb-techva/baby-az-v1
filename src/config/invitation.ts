@@ -30,24 +30,25 @@ export interface WishlistItem {
   iconEmoji?: string;
 }
 
-// 8 Real photographs of Baby AZ
+// Baby AZ gallery in the requested photo order
 export const BABY_GALLERY_PHOTOS = [
-  "/images/gallery/baby-az-01.jpg", // 1. az rawr.jpg – Blue tutu outfit
-  "/images/gallery/baby-az-02.jpg", // 2. Az cute.jpg – Baby AZ with a book
-  "/images/gallery/baby-az-03.jpg", // 3. Az red.jpg – Baby AZ smiling in red
-  "/images/gallery/baby-az-04.jpg", // 4. az pretty.jpg – Baby AZ in crocheted outfit
-  "/images/gallery/baby-az-05.jpg", // 5. az snowwhite.jpg – Baby AZ in Snow White costume
-  "/images/gallery/baby-az-06.jpg", // 6. az ramen.jpg – Baby AZ smiling in pink
-  "/images/gallery/baby-az-07.jpg", // 7. az back.jpg – Baby AZ outdoors near the pool
-  "/images/gallery/baby-az-08.jpg", // 8. az rrff.jpg – Baby AZ smiling with turquoise hair accessories
+  "/images/gallery/baby-az-g1.jpg",
+  "/images/gallery/baby-az-g7.jpg",
+  "/images/gallery/baby-az-g3.jpg",
+  "/images/gallery/baby-az-g2.jpg",
+  "/images/gallery/baby-az-g4.jpg",
+  "/images/gallery/baby-az-g5.jpg",
+  "/images/gallery/baby-az-g6.jpg",
+  "/images/gallery/baby-az-g9.jpg",
+  "/images/gallery/baby-az-g10.jpg"
 ];
 
 export const INVITATION_CONFIG = {
   baby: {
     fullName: "Avryl Zaliyah",
     nickname: "Baby AZ",
-    heroPhoto: "/images/baby-az-hero.jpg",
-    portraitUrl: "/images/baby-az-hero.jpg",
+    heroPhoto: "/images/baby-az-hero-g8.jpg",
+    portraitUrl: "/images/baby-az-hero-g8.jpg",
     galleryPhotos: BABY_GALLERY_PHOTOS,
     milestone: "1st Birthday & Christening",
     headline: "A LITTLE SNOW PRINCESS TURNS ONE",
@@ -183,54 +184,60 @@ export const INVITATION_CONFIG = {
 
   gallery: [
     {
-      id: "photo-1",
-      url: "/images/gallery/baby-az-01.jpg",
-      title: "Little Snow Princess",
-      caption: "Baby AZ in her adorable royal blue tutu outfit & matching headband",
+        "id": "photo-g1",
+        "url": "/images/gallery/baby-az-g1.jpg",
+        "title": "Snow Princess Smiles",
+        "caption": "Baby AZ smiling in her icy blue dress and sparkling tiara"
     },
     {
-      id: "photo-2",
-      url: "/images/gallery/baby-az-02.jpg",
-      title: "Storytime Wonder",
-      caption: "Baby AZ curiously exploring her colorful nursery storybook",
+        "id": "photo-g7",
+        "url": "/images/gallery/baby-az-g7.jpg",
+        "title": "Precious Little Smile",
+        "caption": "A sweet close-up of Baby AZ wrapped in white"
     },
     {
-      id: "photo-3",
-      url: "/images/gallery/baby-az-03.jpg",
-      title: "Radiant Smiles",
-      caption: "Pure happiness and cheerful giggles in her high chair",
+        "id": "photo-g3",
+        "url": "/images/gallery/baby-az-g3.jpg",
+        "title": "Snowy Poolside Adventures",
+        "caption": "Baby AZ enjoying the pool beneath a snowy blue sky"
     },
     {
-      id: "photo-4",
-      url: "/images/gallery/baby-az-04.jpg",
-      title: "Crocheted Sunshine",
-      caption: "Sweetest smile wearing her handcrafted sunflower hat and dress",
+        "id": "photo-g2",
+        "url": "/images/gallery/baby-az-g2.jpg",
+        "title": "Winter Sparkle Style",
+        "caption": "Baby AZ wearing blue sunglasses and her snowflake dress"
     },
     {
-      id: "photo-5",
-      url: "/images/gallery/baby-az-05.jpg",
-      title: "Fairytale Snow White",
-      caption: "Our little storybook princess dressed in royal colors",
+        "id": "photo-g4",
+        "url": "/images/gallery/baby-az-g4.jpg",
+        "title": "Storytime Princess",
+        "caption": "Our little princess exploring her colorful storybook"
     },
     {
-      id: "photo-6",
-      url: "/images/gallery/baby-az-06.jpg",
-      title: "Precious Joy in Pink",
-      caption: "Spreading smiles with her baby spoon and bow",
+        "id": "photo-g5",
+        "url": "/images/gallery/baby-az-g5.jpg",
+        "title": "Royal Giggles",
+        "caption": "Happy smiles in her high chair and blue princess dress"
     },
     {
-      id: "photo-7",
-      url: "/images/gallery/baby-az-07.jpg",
-      title: "Poolside Adventures",
-      caption: "Looking back with wonder during a breezy outdoor day",
+        "id": "photo-g6",
+        "url": "/images/gallery/baby-az-g6.jpg",
+        "title": "Little Graduate",
+        "caption": "A joyful smile beneath an oversized graduation cap"
     },
     {
-      id: "photo-8",
-      url: "/images/gallery/baby-az-08.jpg",
-      title: "Turquoise Sparkle",
-      caption: "Looking up with bright eyes and tiny turquoise blossoms",
+        "id": "photo-g9",
+        "url": "/images/gallery/baby-az-g9.jpg",
+        "title": "Fairy Wand Wishes",
+        "caption": "Baby AZ with her pink bag, blue wings, and fairy wand"
     },
-  ] as GalleryPhoto[],
+    {
+        "id": "photo-g10",
+        "url": "/images/gallery/baby-az-g10.jpg",
+        "title": "Purple Fairy Magic",
+        "caption": "Baby AZ in her purple fairy dress and glowing wings"
+    }
+] as GalleryPhoto[],
 
   wishlist: {
     enabled: true,

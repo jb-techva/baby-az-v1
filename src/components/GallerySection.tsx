@@ -108,7 +108,7 @@ export const GallerySection: React.FC = () => {
           <div className="absolute -inset-1 rounded-3xl bg-gradient-to-tr from-[#B9E2F5]/40 via-[#F7D5E3]/35 to-transparent blur-lg pointer-events-none" />
 
           {/* Picture Frame with subtle shimmer border */}
-          <div className="relative aspect-[3/4] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden bg-slate-100 border-2 border-white/80 shadow-md group">
+          <div className="relative aspect-[4/5] w-full rounded-2xl overflow-hidden bg-slate-100 border-2 border-white/80 shadow-md group">
             <img
               src={activePhoto.url}
               alt={activePhoto.title}
@@ -166,7 +166,7 @@ export const GallerySection: React.FC = () => {
           </div>
         </div>
 
-        {/* 8-Photo Interactive Staggered Grid */}
+        {/* Photo Interactive Staggered Grid */}
         <div className="grid grid-cols-4 gap-2 sm:gap-3">
           {gallery.map((photo: GalleryPhoto, idx: number) => {
             const isSelected = activeIndex === idx;
@@ -185,7 +185,7 @@ export const GallerySection: React.FC = () => {
                     setActiveIndex(idx);
                     openLightbox(idx);
                   }}
-                  className={`relative w-full aspect-square rounded-2xl overflow-hidden border-2 transition-all duration-300 group cursor-pointer focus:outline-none ${
+                  className={`relative w-full aspect-[4/5] rounded-2xl overflow-hidden border-2 transition-all duration-300 group cursor-pointer focus:outline-none ${
                     isSelected
                       ? 'border-[#E998AF] ring-2 ring-[#B9E2F5] scale-102 shadow-lg'
                       : 'border-white/80 hover:border-[#B9E2F5] opacity-85 hover:opacity-100 shadow-sm'
@@ -254,12 +254,12 @@ export const GallerySection: React.FC = () => {
                 </div>
 
                 {/* Natural Aspect Ratio Photo Container (No cropping or distortion) */}
-                <div className="relative max-h-[75vh] w-full flex items-center justify-center">
+                <div className="relative aspect-[4/5] w-[min(100%,56vh)] flex items-center justify-center">
                   <img
                     src={gallery[lightboxIndex].url}
                     alt={gallery[lightboxIndex].title}
                     referrerPolicy="no-referrer"
-                    className="max-h-[75vh] max-w-full w-auto h-auto object-contain rounded-2xl shadow-2xl border-2 border-[#B9E2F5]/40"
+                    className="w-full h-full object-contain rounded-2xl shadow-2xl border-2 border-[#B9E2F5]/40"
                   />
 
                   {/* Desktop Previous Button */}
