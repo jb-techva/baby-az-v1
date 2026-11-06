@@ -4,7 +4,7 @@ import { Sparkles, Crown, Calendar } from 'lucide-react';
 import { INVITATION_CONFIG } from '../config/invitation';
 
 export const HeroSection: React.FC = () => {
-  const { baby, eventDate, theme, characterArtwork } = INVITATION_CONFIG;
+  const { baby, eventDate, theme } = INVITATION_CONFIG;
 
   return (
     <section className="relative pt-8 pb-16 px-4 overflow-hidden">
@@ -75,15 +75,6 @@ export const HeroSection: React.FC = () => {
               ❄
             </div>
 
-            {/* Olaf Friend Corner Companion */}
-            <div className="absolute -bottom-5 -right-5 z-20 w-24 sm:w-28 drop-shadow-xl animate-float pointer-events-none">
-              <img
-                src={characterArtwork.olafWaving}
-                alt="Olaf Waving"
-                referrerPolicy="no-referrer"
-                className="w-full h-auto object-contain"
-              />
-            </div>
           </div>
         </motion.div>
 
