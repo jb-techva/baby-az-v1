@@ -229,7 +229,7 @@ export const INVITATION_CONFIG = {
     {
         "id": "photo-g6",
         "url": "/images/gallery/baby-az-g6.jpg",
-        "title": "Little Graduate",
+        "title": "Little Attorney",
         "caption": "A joyful smile beneath an oversized graduation cap"
     },
     {
