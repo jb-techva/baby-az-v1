@@ -38,6 +38,7 @@ export const BABY_GALLERY_PHOTOS = [
   "/images/gallery/baby-az-g7.jpg",
   "/images/gallery/baby-az-g3.jpg",
   "/images/gallery/baby-az-g2.jpg",
+  "/images/gallery/baby-az-sunglasses-swim.jpg",
   "/images/gallery/baby-az-g5.jpg",
   "/images/gallery/baby-az-engineer.jpg",
   "/images/gallery/baby-az-g6.jpg",
@@ -220,6 +221,12 @@ export const INVITATION_CONFIG = {
         "url": "/images/gallery/baby-az-g2.jpg",
         "title": "Winter Sparkle Style",
         "caption": "Baby AZ wearing blue sunglasses and her snowflake dress"
+    },
+    {
+        "id": "photo-sunglasses-swim",
+        "url": "/images/gallery/baby-az-sunglasses-swim.jpg",
+        "title": "Cool Little Snow Princess",
+        "caption": "Baby AZ in her blue swimsuit and sunglasses beneath snowy sparkles"
     },
     {
         "id": "photo-g5",
