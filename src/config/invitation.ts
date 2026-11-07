@@ -347,7 +347,7 @@ export const INVITATION_CONFIG = {
   rsvp: {
     deadlineText: "Please RSVP by November 20, 2026",
     deadlineDate: "November 20, 2026",
-    maxAttendeesPerSubmission: 8,
+    maxAttendeesPerSubmission: 5,
     disclaimer: "By submitting, you agree to share your name and attendance count with Baby AZ's family for party catering purposes.",
   },
 };
