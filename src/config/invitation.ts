@@ -34,7 +34,6 @@ export interface WishlistItem {
 export const BABY_GALLERY_PHOTOS = [
   "/images/gallery/baby-az-g4.jpg",
   "/images/gallery/baby-az-snow-white.jpg",
-  "/images/gallery/baby-az-g1.jpg",
   "/images/gallery/baby-az-g7.jpg",
   "/images/gallery/baby-az-g3.jpg",
   "/images/gallery/baby-az-g2.jpg",
@@ -197,12 +196,6 @@ export const INVITATION_CONFIG = {
         "url": "/images/gallery/baby-az-snow-white.jpg",
         "title": "Little Snow White",
         "caption": "Baby AZ in her Snow White outfit on a snowy blue blanket"
-    },
-    {
-        "id": "photo-g1",
-        "url": "/images/gallery/baby-az-g1.jpg",
-        "title": "Snow Princess Smiles",
-        "caption": "Baby AZ smiling in her icy blue dress and sparkling tiara"
     },
     {
         "id": "photo-g7",
