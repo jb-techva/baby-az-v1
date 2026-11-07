@@ -35,7 +35,7 @@ export const TimelineSection: React.FC = () => {
         <div className="flex justify-center mb-8">
           <div className="relative max-w-[200px] sm:max-w-[240px] drop-shadow-xl animate-float">
             <img
-              src={INVITATION_CONFIG.characterArtwork.annaCake}
+              src="/images/characters/anna-olaf-timeline.png"
               alt="Anna holding birthday cake with Olaf"
               referrerPolicy="no-referrer"
               className="w-full h-auto object-contain"
