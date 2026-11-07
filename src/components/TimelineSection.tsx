@@ -31,12 +31,12 @@ export const TimelineSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Anna & Olaf Birthday Cake Decorative Vignette */}
+        {/* Elsa Decorative Vignette */}
         <div className="flex justify-center mb-8">
           <div className="relative max-w-[200px] sm:max-w-[240px] drop-shadow-xl animate-float">
             <img
-              src="/images/characters/anna-olaf-timeline.png"
-              alt="Anna holding birthday cake with Olaf"
+              src="/images/characters/elsa-timeline.png"
+              alt="Elsa surrounded by an icy blue snowflake frame"
               referrerPolicy="no-referrer"
               className="w-full h-auto object-contain"
             />
