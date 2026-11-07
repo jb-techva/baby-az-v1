@@ -1,0 +1,5 @@
+{
+  "rewrites": [
+    { "source": "/wishlist", "destination": "/index.html" }
+  ]
+}
