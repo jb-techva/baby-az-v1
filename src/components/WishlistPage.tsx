@@ -2,6 +2,15 @@ import React, { useState } from 'react';
 import { Crown, Sparkles, ArrowLeft, ExternalLink, Heart, Gift, BookOpen, ToyBrick, Shirt, Music, Palette, Info } from 'lucide-react';
 import { INVITATION_CONFIG, WishlistItem } from '../config/invitation';
 
+const giftPictures: Record<string, { file: string; alt: string }> = {
+  clothes: { file: 'clothes', alt: 'Illustration of toddler clothes in icy blue, pink, and white' },
+  'developmental-toys': { file: 'toys', alt: 'Illustration of stacking rings, blocks, and a shape sorter' },
+  books: { file: 'books', alt: 'Illustration of board books, a storybook, and a coloring book' },
+  'musical-instruments': { file: 'music', alt: 'Illustration of a toddler xylophone, drum, and shakers' },
+  'art-supplies': { file: 'art', alt: 'Illustration of jumbo crayons and washable paints' },
+  'future-fund': { file: 'fund', alt: 'Illustration of a piggy bank and coins for Baby AZ’s savings' },
+};
+
 interface WishlistPageProps {
   onBackToInvitation: () => void;
 }
@@ -119,6 +128,20 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
                 className="frosted-glass rounded-3xl p-5 sm:p-6 border-2 border-[#B9E2F5] shadow-md hover:shadow-xl hover:border-[#E998AF] transition-all flex flex-col justify-between group"
               >
                 <div>
+                  {giftPictures[item.id] && (
+                    <figure className="mb-4">
+                      <img
+                        src={`/images/wishlist/${giftPictures[item.id].file}.jpg`}
+                        alt={giftPictures[item.id].alt}
+                        width={768}
+                        height={512}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full aspect-[3/2] object-cover rounded-2xl border border-[#B9E2F5]/60 bg-[#EAF6FF]"
+                      />
+                      <figcaption className="text-[10px] text-[#52799f] text-center mt-1.5">Illustration for inspiration only</figcaption>
+                    </figure>
+                  )}
                   {/* Category Header with Icon */}
                   <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-[#4682B4] bg-[#EAF6FF] px-2.5 py-1 rounded-full border border-[#B9E2F5]/60">
