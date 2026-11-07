@@ -1,16 +1,14 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { ChevronLeft, ChevronRight, Maximize2, X, Sparkles } from 'lucide-react';
+import React, { useState, useCallback } from 'react';
+import { motion } from 'motion/react';
+import { ChevronLeft, ChevronRight, Maximize2, Sparkles } from 'lucide-react';
 import { INVITATION_CONFIG, GalleryPhoto } from '../config/invitation';
+
+import { PhotoViewer } from './PhotoViewer';
 
 export const GallerySection: React.FC = () => {
   const { gallery, gallerySection } = INVITATION_CONFIG;
   const [activeIndex, setActiveIndex] = useState(0);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-
-  // Touch coordinates for mobile swipe
-  const touchStartX = useRef<number | null>(null);
-  const touchEndX = useRef<number | null>(null);
 
   const handleNext = useCallback(() => {
     setActiveIndex((prev) => (prev + 1) % gallery.length);
@@ -22,62 +20,6 @@ export const GallerySection: React.FC = () => {
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
-  };
-
-  const closeLightbox = useCallback(() => {
-    setLightboxIndex(null);
-  }, []);
-
-  const nextLightbox = useCallback(() => {
-    setLightboxIndex((prev) => (prev !== null ? (prev + 1) % gallery.length : 0));
-  }, [gallery.length]);
-
-  const prevLightbox = useCallback(() => {
-    setLightboxIndex((prev) => (prev !== null ? (prev - 1 + gallery.length) % gallery.length : 0));
-  }, [gallery.length]);
-
-  // Keyboard navigation for Lightbox
-  useEffect(() => {
-    if (lightboxIndex === null) return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        closeLightbox();
-      } else if (e.key === 'ArrowRight') {
-        nextLightbox();
-      } else if (e.key === 'ArrowLeft') {
-        prevLightbox();
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [lightboxIndex, closeLightbox, nextLightbox, prevLightbox]);
-
-  // Mobile swipe gestures in Lightbox
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.touches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    const minSwipeDistance = 50;
-
-    if (distance > minSwipeDistance) {
-      // Swiped left -> Next
-      nextLightbox();
-    } else if (distance < -minSwipeDistance) {
-      // Swiped right -> Prev
-      prevLightbox();
-    }
-
-    touchStartX.current = null;
-    touchEndX.current = null;
   };
 
   const activePhoto = gallery[activeIndex] || gallery[0];
@@ -116,6 +58,7 @@ export const GallerySection: React.FC = () => {
               className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
             />
 
+            <button type="button" onClick={() => openLightbox(activeIndex)} aria-label="Zoom gallery photo" className="absolute inset-0 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-white" />
             {/* Subtle bottom gradient scrim for text legibility */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-black/20 pointer-events-none" />
 
@@ -212,97 +155,7 @@ export const GallerySection: React.FC = () => {
           })}
         </div>
 
-        {/* Fullscreen Lightbox Modal */}
-        <AnimatePresence>
-          {lightboxIndex !== null && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-              className="fixed inset-0 z-50 bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 select-none"
-              onClick={closeLightbox}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {/* Soft icy-blue ambient glow in background */}
-              <div className="absolute w-[500px] h-[500px] bg-[#B9E2F5]/15 rounded-full blur-3xl pointer-events-none" />
-
-              <div
-                className="relative max-w-2xl w-full flex flex-col items-center"
-                onClick={(e) => e.stopPropagation()}
-              >
-                {/* Top Action Bar */}
-                <div className="w-full flex items-center justify-between text-white/90 mb-3 px-2">
-                  <div className="flex items-center gap-1.5 text-xs font-semibold text-[#B9E2F5]">
-                    <span>❄</span>
-                    <span>
-                      Photo {lightboxIndex + 1} of {gallery.length}
-                    </span>
-                  </div>
-
-                  {/* Obvious Close Button */}
-                  <button
-                    onClick={closeLightbox}
-                    className="inline-flex items-center gap-1.5 py-1.5 px-3.5 rounded-full bg-white/20 hover:bg-white/30 text-white text-xs font-bold transition-all cursor-pointer active:scale-95 border border-white/30"
-                    aria-label="Close photo viewer"
-                  >
-                    <X className="w-4 h-4" />
-                    <span>Close</span>
-                  </button>
-                </div>
-
-                {/* Natural Aspect Ratio Photo Container (No cropping or distortion) */}
-                <div className="relative aspect-[4/5] w-[min(100%,56vh)] flex items-center justify-center">
-                  <img
-                    src={gallery[lightboxIndex].url}
-                    alt={gallery[lightboxIndex].title}
-                    referrerPolicy="no-referrer"
-                    className="w-full h-full object-contain rounded-2xl shadow-2xl border-2 border-[#B9E2F5]/40"
-                  />
-
-                  {/* Desktop Previous Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      prevLightbox();
-                    }}
-                    className="hidden sm:flex absolute left-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-black/85 text-white transition-all cursor-pointer border border-white/20 hover:scale-105"
-                    aria-label="Previous Photo"
-                  >
-                    <ChevronLeft className="w-6 h-6" />
-                  </button>
-
-                  {/* Desktop Next Button */}
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      nextLightbox();
-                    }}
-                    className="hidden sm:flex absolute right-2 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/60 hover:bg-black/85 text-white transition-all cursor-pointer border border-white/20 hover:scale-105"
-                    aria-label="Next Photo"
-                  >
-                    <ChevronRight className="w-6 h-6" />
-                  </button>
-                </div>
-
-                {/* Lightbox Caption & Details */}
-                <div className="mt-3.5 text-center text-white px-4 max-w-md">
-                  <h3 className="font-royal text-base sm:text-lg font-bold text-[#EAF6FF]">
-                    {gallery[lightboxIndex].title}
-                  </h3>
-                  <p className="text-xs sm:text-sm text-[#B9E2F5] mt-1 font-serif italic">
-                    {gallery[lightboxIndex].caption}
-                  </p>
-                  <span className="text-[11px] text-white/50 block mt-2">
-                    Swipe left/right or use keyboard arrows to browse
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+        {lightboxIndex !== null && <PhotoViewer photos={gallery} index={lightboxIndex} onIndexChange={setLightboxIndex} onClose={() => setLightboxIndex(null)} />}
       </div>
     </section>
   );

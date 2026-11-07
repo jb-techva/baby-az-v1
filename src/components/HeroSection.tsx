@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { PhotoViewer } from './PhotoViewer';
 import { motion } from 'motion/react';
 import { Sparkles, Crown, Calendar } from 'lucide-react';
 import { INVITATION_CONFIG } from '../config/invitation';
 
 export const HeroSection: React.FC = () => {
+  const [photoOpen, setPhotoOpen] = useState(false);
   const { baby, eventDate, theme } = INVITATION_CONFIG;
 
   return (
@@ -58,6 +60,8 @@ export const HeroSection: React.FC = () => {
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-102"
               />
 
+              <button type="button" onClick={() => setPhotoOpen(true)} aria-label="Zoom Baby AZ portrait" className="absolute inset-0 cursor-zoom-in focus-visible:outline-2 focus-visible:outline-[#294867]" />
+              <span className="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full bg-white/90 px-3 py-1 text-[10px] font-semibold text-[#294867] pointer-events-none z-10 whitespace-nowrap">Tap photo to zoom</span>
               {/* Gentle crystal vignette overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-[#294867]/25 via-transparent to-transparent pointer-events-none" />
 
@@ -143,6 +147,7 @@ export const HeroSection: React.FC = () => {
           </div>
         </motion.div>
       </div>
+      {photoOpen && <PhotoViewer photos={[{ url: baby.heroPhoto || baby.portraitUrl, title: 'Baby AZ' }]} index={0} onIndexChange={() => {}} onClose={() => setPhotoOpen(false)} />}
     </section>
   );
 };
