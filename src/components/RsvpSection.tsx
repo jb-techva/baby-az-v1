@@ -7,6 +7,10 @@ export const RsvpSection: React.FC = () => {
   const [guestName, setGuestName] = useState('');
   const [attending, setAttending] = useState<boolean | null>(true);
   const [attendeesCount, setAttendeesCount] = useState<number>(1);
+  const [companionNames, setCompanionNames] = useState<string[]>([]);
+  const activeCompanions = attending ? Array.from({ length: Math.max(0, attendeesCount - 1) }, (_, i) => companionNames[i] || '') : [];
+  const companionPrefix = activeCompanions.length ? 'Accompanying guests:\n' + activeCompanions.map(n => n.trim()).join('\n') + '\n\nWarm wishes:\n' : '';
+  const messageLimit = 500 - companionPrefix.length;
   const [message, setMessage] = useState('');
   const [privacyAcknowledged, setPrivacyAcknowledged] = useState(true);
   const [honeypot, setHoneypot] = useState('');
@@ -57,6 +61,14 @@ export const RsvpSection: React.FC = () => {
       setError('Please select between 1 and 5 guests.');
       return;
     }
+    if (activeCompanions.some(n => n.trim().length < 2 || n.trim().length > 80)) {
+      setError('Please enter the full name of each accompanying guest.');
+      return;
+    }
+    if (message.length > messageLimit) {
+      setError(`Please shorten your warm wishes to ${messageLimit} characters to leave room for guest names.`);
+      return;
+    }
     if (isLoading) return;
     setIsLoading(true);
     if (!requestId.current) requestId.current = crypto.randomUUID();
@@ -73,6 +85,7 @@ export const RsvpSection: React.FC = () => {
           attending,
           attendeesCount: attending ? attendeesCount : 0,
           message: message.trim(),
+          companionNames: activeCompanions.map(n => n.trim()),
           privacyAcknowledged,
           honeypot,
         }),
@@ -152,6 +165,7 @@ export const RsvpSection: React.FC = () => {
                   setMessage('');
                   setAttending(true);
                   setAttendeesCount(1);
+                  setCompanionNames([]);
                   requestId.current = null;
                 }}
                 className="mt-4 px-6 py-2.5 rounded-xl text-xs font-semibold text-[#4682B4] hover:text-[#294867] hover:bg-white/80 transition-colors"
@@ -184,7 +198,7 @@ export const RsvpSection: React.FC = () => {
                   maxLength={80}
                   value={guestName}
                   onChange={(e) => { setGuestName(e.target.value); requestId.current = null; }}
-                  placeholder="e.g. Maria Santos & Family"
+                  placeholder="e.g. Maria Santos"
                   className="w-full px-4 py-3 rounded-2xl bg-white/90 border border-[#B9E2F5] text-[#294867] text-sm focus:outline-none focus:ring-2 focus:ring-[#E998AF] focus:border-transparent transition-all placeholder:text-slate-400"
                 />
               </div>
@@ -254,6 +268,22 @@ export const RsvpSection: React.FC = () => {
                 </div>
               )}
 
+              {attending && attendeesCount > 1 && (
+                <fieldset className="space-y-3">
+                  <legend className="text-xs font-bold uppercase tracking-wider text-[#294867] mb-1.5">Names of Accompanying Guests</legend>
+                  <p className="text-xs text-[#52799f]">Please enter the full names of everyone attending with you, including children. Do not include your own name.</p>
+                  {activeCompanions.map((name, index) => (
+                    <div key={index}>
+                      <label htmlFor={`companion-${index}`} className="block text-xs font-semibold text-[#294867] mb-1.5">Guest {index + 2} — Full Name <span className="text-[#E998AF]">*</span></label>
+                      <input id={`companion-${index}`} type="text" required minLength={2} maxLength={80} value={name}
+                        onChange={e => { setCompanionNames(names => { const next = [...names]; next[index] = e.target.value; return next; }); requestId.current = null; }}
+                        placeholder="Full name"
+                        className="w-full px-4 py-3 rounded-2xl bg-white/90 border border-[#B9E2F5] text-[#294867] text-sm focus:outline-none focus:ring-2 focus:ring-[#E998AF] placeholder:text-slate-400" />
+                    </div>
+                  ))}
+                </fieldset>
+              )}
+
               {/* Message / Wishes */}
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-[#294867] mb-1.5">
@@ -261,7 +291,7 @@ export const RsvpSection: React.FC = () => {
                 </label>
                 <textarea
                   rows={3}
-                  maxLength={500}
+                  maxLength={messageLimit}
                   value={message}
                   onChange={(e) => { setMessage(e.target.value); requestId.current = null; }}
                   placeholder="Share a heartfelt message, blessing, or bible verse for our little snow princess..."
@@ -279,7 +309,7 @@ export const RsvpSection: React.FC = () => {
                   className="mt-1 w-4 h-4 text-[#294867] rounded border-slate-300 focus:ring-[#E998AF]"
                 />
                 <label htmlFor="privacy" className="text-xs text-[#52799f] leading-snug cursor-pointer">
-                  {INVITATION_CONFIG.rsvp.disclaimer}
+                  By submitting, you agree to share your name, accompanying guests’ names, attendance count, and message with Baby AZ’s family for party planning.
                 </label>
               </div>
 

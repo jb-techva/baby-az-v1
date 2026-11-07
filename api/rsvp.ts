@@ -35,13 +35,19 @@ export default async function handler(req: RsvpRequest, res: ServerResponse) {
     if (!Number.isInteger(b.attendeesCount) || (b.attending ? Number(b.attendeesCount) < 1 || Number(b.attendeesCount) > 5 : b.attendeesCount !== 0)) return reply(400, { error: 'Please select 1 to 5 guests, or zero when declining.' });
     if (b.message !== undefined && (typeof b.message !== 'string' || b.message.length > 500)) return reply(400, { error: 'Please keep your message within 500 characters.' });
     if (typeof b.requestId !== 'string' || !/^[a-f0-9-]{36}$/i.test(b.requestId)) return reply(400, { error: 'Please refresh the page and try again.' });
+    const companions = b.companionNames === undefined ? [] : b.companionNames;
+    const expectedCompanions = b.attending ? Number(b.attendeesCount) - 1 : 0;
+    if (!Array.isArray(companions) || companions.length !== expectedCompanions || companions.some(n => typeof n !== 'string' || n.trim().length < 2 || n.trim().length > 80)) return reply(400, { error: 'Please provide the full name of each accompanying guest.' });
+    const wishes = String(b.message || '').trim();
+    const storedMessage = companions.length ? 'Accompanying guests:\n' + companions.map(n => String(n).trim()).join('\n') + '\n\nWarm wishes:\n' + wishes : wishes;
+    if (storedMessage.length > 500) return reply(400, { error: 'Please shorten your warm wishes to leave room for accompanying guest names.' });
     const url = process.env.RSVP_SHEETS_WEB_APP_URL;
     const secret = process.env.RSVP_SHEETS_SECRET;
     if (!url || !secret) return reply(503, { error: 'RSVP registration is not available yet. Please contact the parents or try again later.' });
     if (!/^https:\/\/script\.google\.com\/macros\/s\/[^/]+\/exec$/.test(url) || secret.length < 32) return reply(503, { error: 'RSVP registration is temporarily unavailable. Please contact the parents.' });
     const upstream = await fetch(url, {
       method: 'POST', headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ secret, requestId: b.requestId, guestName: name, attending: b.attending, attendeesCount: b.attendeesCount, message: String(b.message || '').trim(), privacyAcknowledged: true }),
+      body: JSON.stringify({ secret, requestId: b.requestId, guestName: name, attending: b.attending, attendeesCount: b.attendeesCount, message: storedMessage, privacyAcknowledged: true }),
       signal: AbortSignal.timeout(12000),
     });
     const saved = await upstream.json() as { success?: boolean; requestId?: string };
