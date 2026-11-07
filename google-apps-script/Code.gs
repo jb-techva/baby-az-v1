@@ -25,8 +25,13 @@ function doPost(e) {
     }
     // Persisted ID makes retries safe even after a timeout or a fresh server instance.
     if (sheet.getLastRow() > 1 && sheet.getRange(2, 1, sheet.getLastRow() - 1, 1).createTextFinder(b.requestId).matchEntireCell(true).findNext()) return json_({ success: true, requestId: b.requestId });
-    var row = [b.requestId, Utilities.formatDate(new Date(), 'Asia/Manila', 'yyyy-MM-dd HH:mm:ss'), safeText_(b.guestName.trim()), b.attending ? 'Attending' : 'Declined', b.attendeesCount, safeText_(b.message.trim()), 'Yes'];
-    sheet.getRange(sheet.getLastRow() + 1, 1, 1, 7).setValues([row]);
+    var wishes = b.message.trim();
+    var companions = '';
+    var match = /^Accompanying guests:\\n([\\s\\S]*?)\\n\\nWarm wishes:\\n([\\s\\S]*)$/.exec(wishes);
+    if (match) { companions = match[1]; wishes = match[2]; }
+    sheet.getRange(1, 8).setValue('Accompanying guests').setFontWeight('bold');
+    var row = [b.requestId, Utilities.formatDate(new Date(), 'Asia/Manila', 'yyyy-MM-dd HH:mm:ss'), safeText_(b.guestName.trim()), b.attending ? 'Attending' : 'Declined', b.attendeesCount, safeText_(wishes), 'Yes', safeText_(companions)];
+    sheet.getRange(sheet.getLastRow() + 1, 1, 1, 8).setValues([row]);
     SpreadsheetApp.flush();
     return json_({ success: true, requestId: b.requestId });
   } catch (err) {
