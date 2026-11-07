@@ -32,11 +32,11 @@ export interface WishlistItem {
 
 // Baby AZ gallery in the requested photo order
 export const BABY_GALLERY_PHOTOS = [
+  "/images/gallery/baby-az-g4.jpg",
   "/images/gallery/baby-az-g1.jpg",
   "/images/gallery/baby-az-g7.jpg",
   "/images/gallery/baby-az-g3.jpg",
   "/images/gallery/baby-az-g2.jpg",
-  "/images/gallery/baby-az-g4.jpg",
   "/images/gallery/baby-az-g5.jpg",
   "/images/gallery/baby-az-engineer.jpg",
   "/images/gallery/baby-az-g6.jpg",
@@ -185,6 +185,12 @@ export const INVITATION_CONFIG = {
 
   gallery: [
     {
+        "id": "photo-g4",
+        "url": "/images/gallery/baby-az-g4.jpg",
+        "title": "Storytime Princess",
+        "caption": "Our little princess exploring her colorful storybook"
+    },
+    {
         "id": "photo-g1",
         "url": "/images/gallery/baby-az-g1.jpg",
         "title": "Snow Princess Smiles",
@@ -207,12 +213,6 @@ export const INVITATION_CONFIG = {
         "url": "/images/gallery/baby-az-g2.jpg",
         "title": "Winter Sparkle Style",
         "caption": "Baby AZ wearing blue sunglasses and her snowflake dress"
-    },
-    {
-        "id": "photo-g4",
-        "url": "/images/gallery/baby-az-g4.jpg",
-        "title": "Storytime Princess",
-        "caption": "Our little princess exploring her colorful storybook"
     },
     {
         "id": "photo-g5",
