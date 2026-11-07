@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Crown, Sparkles, ArrowLeft, ExternalLink, Heart, Gift, BookOpen, ToyBrick, Shirt, Baby, Utensils, Info } from 'lucide-react';
+import { Crown, Sparkles, ArrowLeft, ExternalLink, Heart, Gift, BookOpen, ToyBrick, Shirt, Music, Palette, Info } from 'lucide-react';
 import { INVITATION_CONFIG, WishlistItem } from '../config/invitation';
 
 interface WishlistPageProps {
@@ -18,16 +18,16 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
 
   const getCategoryIcon = (category: string) => {
     switch (category.toLowerCase()) {
-      case 'books & early learning':
+      case 'books':
         return <BookOpen className="w-5 h-5 text-[#4682B4]" />;
-      case 'toys & development':
+      case 'learning & play':
         return <ToyBrick className="w-5 h-5 text-[#E998AF]" />;
-      case 'apparel & comfort':
+      case 'clothes':
         return <Shirt className="w-5 h-5 text-[#3d658c]" />;
-      case 'daily essentials':
-        return <Baby className="w-5 h-5 text-[#4682B4]" />;
-      case 'mealtime':
-        return <Utensils className="w-5 h-5 text-[#E998AF]" />;
+      case 'music':
+        return <Music className="w-5 h-5 text-[#4682B4]" />;
+      case 'arts & creativity':
+        return <Palette className="w-5 h-5 text-[#E998AF]" />;
       default:
         return <Gift className="w-5 h-5 text-[#E998AF]" />;
     }
@@ -82,7 +82,7 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
           <div className="p-3.5 sm:p-4 rounded-2xl bg-[#EAF6FF]/90 border border-[#B9E2F5] shadow-sm max-w-lg mx-auto flex items-center justify-center gap-2.5 text-xs text-[#294867]">
             <Info className="w-4 h-4 text-[#4682B4] shrink-0" />
             <span>
-              <strong>Draft Wishlist:</strong> Curated by Mommy & Daddy. Store purchase links are currently being confirmed!
+              <strong>For inspiration only:</strong> Similar items are welcome. Please feel free to choose any brand or store.
             </span>
           </div>
         </div>
@@ -90,7 +90,7 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
 
       {/* Category Filter Tabs */}
       <div className="max-w-3xl mx-auto px-4 mb-8">
-        <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none justify-start sm:justify-center">
+        <div className="flex items-center gap-2 flex-wrap justify-center pb-2">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -170,7 +170,7 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
                     </a>
                   ) : (
                     <div className="w-full text-center py-2.5 px-4 rounded-xl bg-[#EAF6FF]/80 text-[#52799f] text-xs font-semibold tracking-wider uppercase border border-dashed border-[#B9E2F5]">
-                      Link Coming Soon
+                      {item.id === 'future-fund' ? 'A thoughtful contribution' : 'Similar items are welcome'}
                     </div>
                   )}
                 </div>
@@ -189,9 +189,9 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
             <span>BACK TO INVITATION</span>
           </button>
 
-          <p className="text-xs text-[#52799f] flex items-center justify-center gap-1.5">
+          <p className="text-xs text-[#52799f] flex items-start justify-center gap-1.5 max-w-lg mx-auto leading-relaxed">
             <Heart className="w-3.5 h-3.5 text-[#E998AF] fill-[#E998AF]" />
-            <span>Thank you for showering Baby AZ with love and blessings</span>
+            <span>Your presence, love, and prayers are our greatest gifts. These are simply suggestions—gifts are appreciated but never expected.</span>
           </p>
         </div>
       </div>
