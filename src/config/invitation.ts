@@ -38,8 +38,9 @@ export const BABY_GALLERY_PHOTOS = [
   "/images/gallery/baby-az-g2.jpg",
   "/images/gallery/baby-az-g4.jpg",
   "/images/gallery/baby-az-g5.jpg",
+  "/images/gallery/baby-az-engineer.jpg",
   "/images/gallery/baby-az-g6.jpg",
-  "/images/gallery/baby-az-g9.jpg",
+  "/images/gallery/baby-az-g9-updated.jpg",
   "/images/gallery/baby-az-g10.jpg"
 ];
 
@@ -220,6 +221,12 @@ export const INVITATION_CONFIG = {
         "caption": "Happy smiles in her high chair and blue princess dress"
     },
     {
+        "id": "photo-engineer",
+        "url": "/images/gallery/baby-az-engineer.jpg",
+        "title": "Little Engineer",
+        "caption": "Baby AZ in her yellow engineer outfit against a snowy blue background"
+    },
+    {
         "id": "photo-g6",
         "url": "/images/gallery/baby-az-g6.jpg",
         "title": "Little Graduate",
@@ -227,7 +234,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g9",
-        "url": "/images/gallery/baby-az-g9.jpg",
+        "url": "/images/gallery/baby-az-g9-updated.jpg",
         "title": "Fairy Wand Wishes",
         "caption": "Baby AZ with her pink bag, blue wings, and fairy wand"
     },
