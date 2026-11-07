@@ -18,13 +18,13 @@ export const GiftRegistrySection: React.FC<GiftRegistrySectionProps> = ({ onOpen
           <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#B9E2F5]/30 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute -bottom-12 -left-12 w-44 h-44 bg-[#F7D5E3]/40 rounded-full blur-2xl pointer-events-none" />
 
-          {/* Winter Character Holding a Gift (Olaf with Gift Box) */}
+          {/* Transparent Anna and Olaf wishlist artwork */}
           <div className="relative flex justify-center mb-4">
             <div className="relative w-36 sm:w-44 select-none animate-float group cursor-pointer" onClick={onOpenWishlist}>
               <div className="absolute inset-0 bg-gradient-to-t from-[#B9E2F5]/40 to-transparent rounded-full blur-xl group-hover:scale-110 transition-transform duration-500" />
               <img
-                src={wishlist.characterImage || INVITATION_CONFIG.characterArtwork.olafEnvelope}
-                alt="Snowman holding gift present"
+                src="/images/characters/anna-olaf-timeline.png"
+                alt="Anna holding a birthday cake beside Olaf with a gift"
                 referrerPolicy="no-referrer"
                 className="relative z-10 w-full h-auto object-contain drop-shadow-xl transition-transform duration-300 group-hover:scale-105"
               />
