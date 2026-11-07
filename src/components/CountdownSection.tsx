@@ -80,7 +80,7 @@ export const CountdownSection: React.FC = () => {
           </div>
 
           <p className="text-xs sm:text-sm text-[#4682B4] mb-6">
-            Saturday, December 5, 2026 · 9:00 AM (Philippine Time)
+            Saturday, December 5, 2026 · 9:30 AM (Philippine Time)
           </p>
 
           {timeLeft.hasStarted ? (

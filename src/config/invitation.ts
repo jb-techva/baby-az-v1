@@ -74,7 +74,7 @@ export const INVITATION_CONFIG = {
     dayOfWeek: "Saturday",
     fullDateString: "December 5, 2026",
     // Countdown target in Asia/Manila (UTC+8)
-    countdownTargetIso: "2026-12-05T09:00:00+08:00",
+    countdownTargetIso: "2026-12-05T09:30:00+08:00",
   },
 
   theme: {
@@ -114,7 +114,7 @@ export const INVITATION_CONFIG = {
       name: "Our Lady Queen of Peace Parish",
       branch: "Queen's Row West",
       date: "December 5, 2026",
-      time: "9:00 AM – 11:00 AM",
+      time: "9:30 AM – 11:00 AM",
       address: "Queen's Row West, Bacoor City, Cavite",
       mapUrl: "https://maps.app.goo.gl/JfL1mQD5CjAhroPD8",
       mapsUrl: "https://maps.app.goo.gl/JfL1mQD5CjAhroPD8",
@@ -123,7 +123,7 @@ export const INVITATION_CONFIG = {
       imageAlt: "Actual photograph of Our Lady Queen of Peace Parish",
       badge: "Holy Sacrament",
       accent: "ice-blue",
-      details: "Please arrive 15 minutes before 9:00 AM for registration and seating of sponsors and beloved guests.",
+      details: "Please arrive 15 minutes before 9:30 AM for registration and seating of sponsors and beloved guests.",
     },
     birthday: {
       title: "Baby AZ's Royal Birthday Celebration",
@@ -133,7 +133,7 @@ export const INVITATION_CONFIG = {
       partyTheme: "Jollibee Fairytale Land",
       themeName: "Jollibee Fairytale Land",
       date: "December 5, 2026",
-      time: "12:30 PM – 3:00 PM",
+      time: "12:30 PM – 3:30 PM",
       address: "409 Molino Road, Bacoor, Cavite, Philippines",
       mapUrl: "https://maps.app.goo.gl/8AcWYJXASrsZs2eJ9",
       mapsUrl: "https://maps.app.goo.gl/8AcWYJXASrsZs2eJ9",
@@ -148,7 +148,7 @@ export const INVITATION_CONFIG = {
 
   schedule: [
     {
-      time: "9:00 AM – 11:00 AM",
+      time: "9:30 AM – 11:00 AM",
       title: "Christening Ceremony",
       description: "Our Lady Queen of Peace Parish",
       location: "Our Lady Queen of Peace Parish",
@@ -169,7 +169,7 @@ export const INVITATION_CONFIG = {
       iconType: "car",
     },
     {
-      time: "12:30 PM – 3:00 PM",
+      time: "12:30 PM – 3:30 PM",
       title: "Baby AZ's Royal Birthday Party",
       description: "Jollibee Fairytale Land",
       location: "Jollibee Fairytale Land, Molino Bayanan",
