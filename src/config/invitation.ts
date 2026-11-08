@@ -285,6 +285,12 @@ export const INVITATION_CONFIG = {
       "iconEmoji": "📱"
 },
       {
+      "id": "playstation",
+      "name": "PlayStation 5 PRO",
+      "category": "Gaming",
+      "description": "Baby AZ's favorite toy since birth, her daddy will not use it, only Baby AZ. Promise! 🫢"
+},
+      {
             "id": "clothes",
             "name": "Clothes · 18–24 Months",
             "category": "Clothes",
