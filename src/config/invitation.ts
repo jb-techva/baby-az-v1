@@ -35,6 +35,7 @@ export const BABY_GALLERY_PHOTOS = [
   "/images/gallery/baby-az-g4.jpg",
   "/images/gallery/baby-az-snow-white.jpg",
   "/images/gallery/baby-az-g7.jpg",
+  "/images/gallery/baby-az-blue-blooms.jpg",
   "/images/gallery/baby-az-g3.jpg",
   "/images/gallery/baby-az-g2.jpg",
   "/images/gallery/baby-az-sunglasses-swim.jpg",
@@ -202,6 +203,12 @@ export const INVITATION_CONFIG = {
         "url": "/images/gallery/baby-az-g7.jpg",
         "title": "Precious Little Smile",
         "caption": "A sweet close-up of Baby AZ wrapped in white"
+    },
+    {
+        "id": "photo-blue-blooms",
+        "url": "/images/gallery/baby-az-blue-blooms.jpg",
+        "title": "Little Blue Blossom",
+        "caption": "Baby AZ in her blue floral outfit against a pink snowflake backdrop"
     },
     {
         "id": "photo-g3",
