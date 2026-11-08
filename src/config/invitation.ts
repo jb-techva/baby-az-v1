@@ -277,6 +277,14 @@ export const INVITATION_CONFIG = {
     characterImage: "/images/characters/olaf-gift.png",
     items: [
       {
+      "id": "future-phone",
+      "name": "iPhone 18 Pro Max 1 TB Fully Paid",
+      "category": "Future Phone",
+      "description": "For Baby AZ’s future phone when she’s 18 years old. We will keep it safe. Thank you. 🤣",
+      "sizeOrSpecs": "1 TB · Fully Paid",
+      "iconEmoji": "📱"
+},
+      {
             "id": "clothes",
             "name": "Clothes · 18–24 Months",
             "category": "Clothes",

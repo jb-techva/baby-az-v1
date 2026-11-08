@@ -3,6 +3,7 @@ import { Crown, Sparkles, ArrowLeft, ExternalLink, Heart, Gift, BookOpen, ToyBri
 import { INVITATION_CONFIG, WishlistItem } from '../config/invitation';
 
 const giftPictures: Record<string, { file: string; alt: string }> = {
+  'future-phone': { file: 'iphone-fully-paid', alt: 'iPhone 18 Pro Max reference image supplied by Baby AZ’s family' },
   clothes: { file: 'clothes', alt: 'Illustration of toddler clothes in icy blue, pink, and white' },
   'developmental-toys': { file: 'toys', alt: 'Illustration of stacking rings, blocks, and a shape sorter' },
   books: { file: 'books', alt: 'Illustration of board books, a storybook, and a coloring book' },
@@ -137,7 +138,7 @@ export const WishlistPage: React.FC<WishlistPageProps> = ({ onBackToInvitation }
                         height={512}
                         loading="lazy"
                         decoding="async"
-                        className="w-full aspect-[3/2] object-cover rounded-2xl border border-[#B9E2F5]/60 bg-[#EAF6FF]"
+                        className={`w-full ${item.id === 'future-phone' ? 'aspect-video object-contain' : 'aspect-[3/2] object-cover'} rounded-2xl border border-[#B9E2F5]/60 bg-[#EAF6FF]`}
                       />
                       <figcaption className="text-[10px] text-[#52799f] text-center mt-1.5">Illustration for inspiration only</figcaption>
                     </figure>
