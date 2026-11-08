@@ -50,8 +50,8 @@ export const INVITATION_CONFIG = {
   baby: {
     fullName: "Avryl Zaliyah",
     nickname: "Baby AZ",
-    heroPhoto: "/images/baby-az-hero-g8.jpg",
-    portraitUrl: "/images/baby-az-hero-g8.jpg",
+    heroPhoto: "/images/baby-az-hero-g8-v2.jpg",
+    portraitUrl: "/images/baby-az-hero-g8-v2.jpg",
     galleryPhotos: BABY_GALLERY_PHOTOS,
     milestone: "1st Birthday & Christening",
     headline: "A LITTLE SNOW PRINCESS TURNS ONE",
