@@ -32,18 +32,18 @@ export interface WishlistItem {
 
 // Baby AZ gallery in the requested photo order
 export const BABY_GALLERY_PHOTOS = [
-  "/images/gallery/baby-az-g4.jpg",
+  "/images/gallery/baby-az-g4-full.jpg",
   "/images/gallery/baby-az-snow-white.jpg",
-  "/images/gallery/baby-az-g7.jpg",
+  "/images/gallery/baby-az-g7-full.jpg",
   "/images/gallery/baby-az-blue-blooms.jpg",
   "/images/gallery/baby-az-unicorn.jpg",
-  "/images/gallery/baby-az-g2.jpg",
+  "/images/gallery/baby-az-g2-full.jpg",
   "/images/gallery/baby-az-sunglasses-swim.jpg",
-  "/images/gallery/baby-az-g5.jpg",
+  "/images/gallery/baby-az-g5-full.jpg",
   "/images/gallery/baby-az-engineer.jpg",
-  "/images/gallery/baby-az-g6.jpg",
+  "/images/gallery/baby-az-g6-full.jpg",
   "/images/gallery/baby-az-g9-updated.jpg",
-  "/images/gallery/baby-az-g10.jpg"
+  "/images/gallery/baby-az-g10-full.jpg"
 ];
 
 export const INVITATION_CONFIG = {
@@ -188,7 +188,7 @@ export const INVITATION_CONFIG = {
   gallery: [
     {
         "id": "photo-g4",
-        "url": "/images/gallery/baby-az-g4.jpg",
+        "url": "/images/gallery/baby-az-g4-full.jpg",
         "title": "Storytime Princess",
         "caption": "Our little princess exploring her colorful storybook"
     },
@@ -200,7 +200,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g7",
-        "url": "/images/gallery/baby-az-g7.jpg",
+        "url": "/images/gallery/baby-az-g7-full.jpg",
         "title": "Precious Little Smile",
         "caption": "A sweet close-up of Baby AZ wrapped in white"
     },
@@ -218,7 +218,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g2",
-        "url": "/images/gallery/baby-az-g2.jpg",
+        "url": "/images/gallery/baby-az-g2-full.jpg",
         "title": "Winter Sparkle Style",
         "caption": "Baby AZ wearing blue sunglasses and her snowflake dress"
     },
@@ -230,7 +230,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g5",
-        "url": "/images/gallery/baby-az-g5.jpg",
+        "url": "/images/gallery/baby-az-g5-full.jpg",
         "title": "Royal Giggles",
         "caption": "Happy smiles in her high chair and blue princess dress"
     },
@@ -242,7 +242,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g6",
-        "url": "/images/gallery/baby-az-g6.jpg",
+        "url": "/images/gallery/baby-az-g6-full.jpg",
         "title": "Little Attorney",
         "caption": "A joyful smile beneath an oversized graduation cap"
     },
@@ -254,7 +254,7 @@ export const INVITATION_CONFIG = {
     },
     {
         "id": "photo-g10",
-        "url": "/images/gallery/baby-az-g10.jpg",
+        "url": "/images/gallery/baby-az-g10-full.jpg",
         "title": "Purple Fairy Magic",
         "caption": "Baby AZ in her purple fairy dress and glowing wings"
     }
