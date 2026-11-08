@@ -333,7 +333,7 @@ export const INVITATION_CONFIG = {
     colors: [
       { name: "Ice Blue", hex: "#B9E2F5", border: "#7bc3eb" },
       { name: "Snow White", hex: "#F9FCFF", border: "#DDE5EF" },
-      { name: "Silver", hex: "#DDE5EF", border: "#9fb0c6" },
+      { name: "Light Gray", hex: "#DDE5EF", border: "#9fb0c6" },
       { name: "Blush Pink", hex: "#F7D5E3", border: "#e8a4be" },
       { name: "Fairytale Pink", hex: "#E998AF", border: "#d76b88" },
     ],
