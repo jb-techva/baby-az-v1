@@ -51,17 +51,6 @@ export const GiftRegistrySection: React.FC<GiftRegistrySectionProps> = ({ onOpen
             <Sparkles className="w-3.5 h-3.5 text-[#E998AF]" />
           </div>
 
-          {/* Heartfelt Message */}
-          <div className="relative my-3 max-w-md mx-auto">
-            <p className="font-serif italic text-sm sm:text-base text-[#294867] leading-relaxed">
-              "{wishlist.message}"
-            </p>
-
-            <span className="font-script text-2xl sm:text-3xl text-[#E998AF] block mt-4">
-              {wishlist.signature}
-            </span>
-          </div>
-
           {/* Prominent Rounded Pink Gift Registry Button */}
           <div className="mt-8 px-2">
             <button
