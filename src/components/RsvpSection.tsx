@@ -198,7 +198,7 @@ export const RsvpSection: React.FC = () => {
                   maxLength={80}
                   value={guestName}
                   onChange={(e) => { setGuestName(e.target.value); requestId.current = null; }}
-                  placeholder="e.g. Jeo Ong"
+                  placeholder="e.g. Jeo Ong or Gehlee Fish"
                   className="w-full px-4 py-3 rounded-2xl bg-white/90 border border-[#B9E2F5] text-[#294867] text-sm focus:outline-none focus:ring-2 focus:ring-[#E998AF] focus:border-transparent transition-all placeholder:text-slate-400"
                 />
               </div>
