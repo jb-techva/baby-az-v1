@@ -288,7 +288,8 @@ export const INVITATION_CONFIG = {
       "id": "playstation",
       "name": "PlayStation 5 PRO",
       "category": "Gaming",
-      "description": "Baby AZ's favorite toy since birth, her daddy will not use it, only Baby AZ. Promise! 🫢"
+      "description": "Baby AZ's favorite toy since birth, her daddy will not use it, only Baby AZ. Promise! 🫢",
+      "sizeOrSpecs": "with 2 Wireless Controllers · Fully paid"
 },
       {
             "id": "clothes",
