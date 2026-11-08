@@ -36,7 +36,7 @@ export const BABY_GALLERY_PHOTOS = [
   "/images/gallery/baby-az-snow-white.jpg",
   "/images/gallery/baby-az-g7.jpg",
   "/images/gallery/baby-az-blue-blooms.jpg",
-  "/images/gallery/baby-az-g3.jpg",
+  "/images/gallery/baby-az-unicorn.jpg",
   "/images/gallery/baby-az-g2.jpg",
   "/images/gallery/baby-az-sunglasses-swim.jpg",
   "/images/gallery/baby-az-g5.jpg",
@@ -211,10 +211,10 @@ export const INVITATION_CONFIG = {
         "caption": "Baby AZ in her blue floral outfit against a pink snowflake backdrop"
     },
     {
-        "id": "photo-g3",
-        "url": "/images/gallery/baby-az-g3.jpg",
-        "title": "Snowy Poolside Adventures",
-        "caption": "Baby AZ enjoying the pool beneath a snowy blue sky"
+        "id": "photo-unicorn",
+        "url": "/images/gallery/baby-az-unicorn.jpg",
+        "title": "Little Unicorn",
+        "caption": "Baby AZ in her cozy unicorn costume in a snowy blue wonderland"
     },
     {
         "id": "photo-g2",
