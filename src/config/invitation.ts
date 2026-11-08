@@ -238,7 +238,7 @@ export const INVITATION_CONFIG = {
         "id": "photo-engineer",
         "url": "/images/gallery/baby-az-engineer.jpg",
         "title": "Little Engineer",
-        "caption": "Baby AZ in her yellow engineer outfit against a snowy blue background"
+        "caption": "Baby AZ in her yellow engineer outfit just like her Engr. Daddy and Engr. Tito Jim"
     },
     {
         "id": "photo-g6",
