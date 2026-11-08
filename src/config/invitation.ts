@@ -244,7 +244,7 @@ export const INVITATION_CONFIG = {
         "id": "photo-g6",
         "url": "/images/gallery/baby-az-g6-full.jpg",
         "title": "Little Attorney",
-        "caption": "Joyful smile beneath her law school graduation cap just like her Atty. Tita Jecelle"
+        "caption": "Law graduate Atty. Baby AZ just like her Atty. Tita Jecelle"
     },
     {
         "id": "photo-g9",
