@@ -142,6 +142,25 @@ export const HeroSection: React.FC = () => {
             </span>
           </div>
         </motion.div>
+        <div className="mt-8 w-full rounded-3xl border border-[#B9E2F5] bg-white/85 p-6 sm:p-8 shadow-lg backdrop-blur-xs">
+          <span aria-hidden="true" className="text-3xl">❄️</span>
+          <h2 className="mt-3 font-royal text-xl sm:text-2xl font-bold text-[#294867]">
+            A Magical Adventure Awaits
+          </h2>
+          <p className="mt-3 text-sm leading-relaxed text-[#3d658c]">
+            Join Princess Baby AZ on a Frozen adventure! Explore Arendelle, complete three magical quests, and celebrate with a birthday surprise.
+          </p>
+          <a
+            href="https://baby-az-frozen-adventure.ai.studio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-5 inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-[#B9E2F5] bg-gradient-to-r from-[#294867] to-[#3d658c] px-5 py-3 text-sm font-bold text-white shadow-md transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4682B4] active:scale-95"
+          >
+            <span aria-hidden="true">🎮</span>
+            Play Baby AZ’s Frozen Adventure
+          </a>
+          <p className="mt-3 text-xs text-[#3d658c]">Opens in a new tab so you can return to the invitation.</p>
+        </div>
       </div>
     </section>
   );
