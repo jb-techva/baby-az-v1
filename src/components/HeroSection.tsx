@@ -142,19 +142,25 @@ export const HeroSection: React.FC = () => {
             </span>
           </div>
         </motion.div>
-        <div className="mt-8 w-full rounded-3xl border border-[#B9E2F5] bg-white/85 p-6 sm:p-8 shadow-lg backdrop-blur-xs">
-          <span aria-hidden="true" className="text-3xl">❄️</span>
+        <div className="relative mt-8 w-full overflow-hidden rounded-[2rem] border-2 border-[#B9E2F5] bg-gradient-to-br from-[#EAF6FF] via-white to-[#FCEAF2] p-6 sm:p-8 shadow-xl">
+          <div aria-hidden="true" className="mb-4 flex items-center justify-center gap-4 text-3xl"><span className="-rotate-12">⛄</span><span className="motion-safe:animate-bounce">❄️</span><span className="rotate-12">🏰</span></div>
+          <span className="inline-flex rounded-full border border-[#B9E2F5] bg-white/90 px-4 py-1.5 text-xs font-bold tracking-wide text-[#3d658c]">4 magical quests · 1 birthday adventure</span>
           <h2 className="mt-3 font-royal text-xl sm:text-2xl font-bold text-[#294867]">
-            A Magical Adventure Awaits
+            Ready, Set… Snow!
           </h2>
           <p className="mt-3 text-sm leading-relaxed text-[#3d658c]">
-            Join Princess Baby AZ on a Frozen adventure! Explore Arendelle, complete three magical quests, and celebrate with a birthday surprise.
+            Calling all little adventurers! Build, match, rescue, and blast your way through four magical quests with Olaf, Elsa, Anna, and Kristoff. Help Princess Baby AZ reach her royal birthday celebration!
           </p>
+          <div className="mt-5 grid grid-cols-2 gap-2 text-xs font-semibold text-[#294867]">
+            {["⛄ Olaf · Build", "💎 Elsa · Match", "❄️ Anna · Rescue", "🏔️ Kristoff · Blast"].map((quest) => (
+              <span key={quest} className="rounded-xl border border-white bg-white/80 px-3 py-2.5 shadow-xs">{quest}</span>
+            ))}
+          </div>
           <a
             href="https://baby-az-frozen-adventure.ai.studio/"
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-5 inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-[#B9E2F5] bg-gradient-to-r from-[#294867] to-[#3d658c] px-5 py-3 text-sm font-bold text-white shadow-md transition hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4682B4] active:scale-95"
+            className="mt-5 inline-flex min-h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-2xl border border-[#B9E2F5] bg-gradient-to-r from-[#294867] to-[#3d658c] px-5 py-3 text-sm font-bold text-white shadow-md transition motion-safe:hover:-translate-y-1 hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#4682B4] active:scale-95"
           >
             <span aria-hidden="true">🎮</span>
             Play Baby AZ’s Frozen Adventure
