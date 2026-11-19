@@ -4,7 +4,7 @@ import { SnowBackground } from './components/SnowBackground';
 import { AudioPlayer } from './components/AudioPlayer';
 import { OpeningEnvelope } from './components/OpeningEnvelope';
 import { Navbar } from './components/Navbar';
-import { HeroSection } from './components/HeroSection';
+import { HeroSection, GameSection } from './components/HeroSection';
 import { CountdownSection } from './components/CountdownSection';
 import { VenuesSection } from './components/VenuesSection';
 import { TimelineSection } from './components/TimelineSection';
@@ -94,6 +94,7 @@ export default function App() {
             <TimelineSection />
             <DressCodeSection />
             <GiftRegistrySection onOpenWishlist={navigateToWishlist} />
+            <GameSection />
             <GallerySection />
             <RsvpSection />
           </main>
