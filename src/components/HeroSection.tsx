@@ -142,7 +142,16 @@ export const HeroSection: React.FC = () => {
             </span>
           </div>
         </motion.div>
-        <div className="relative mt-8 w-full overflow-hidden rounded-[2rem] border-2 border-[#B9E2F5] bg-gradient-to-br from-[#EAF6FF] via-white to-[#FCEAF2] p-6 sm:p-8 shadow-xl">
+
+      </div>
+    </section>
+  );
+};
+
+export const GameSection: React.FC = () => (
+  <section id="adventure" className="relative px-4 py-8 text-center" aria-label="Baby AZ’s Frozen Adventure">
+    <div className="max-w-xl mx-auto">
+        <div className="relative w-full overflow-hidden rounded-[2rem] border-2 border-[#B9E2F5] bg-gradient-to-br from-[#EAF6FF] via-white to-[#FCEAF2] p-6 sm:p-8 shadow-xl">
           <div aria-hidden="true" className="mb-4 flex items-center justify-center gap-4 text-3xl"><span className="-rotate-12">⛄</span><span className="motion-safe:animate-bounce">❄️</span><span className="rotate-12">🏰</span></div>
           <span className="inline-flex rounded-full border border-[#B9E2F5] bg-white/90 px-4 py-1.5 text-xs font-bold tracking-wide text-[#3d658c]">4 magical quests · 1 birthday adventure</span>
           <h2 className="mt-3 font-royal text-xl sm:text-2xl font-bold text-[#294867]">
@@ -167,7 +176,6 @@ export const HeroSection: React.FC = () => {
           </a>
           <p className="mt-3 text-xs text-[#3d658c]">Opens in a new tab so you can return to the invitation.</p>
         </div>
-      </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
